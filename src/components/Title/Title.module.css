@@ -1,0 +1,21 @@
+.statistics {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.good {
+  color: green;
+}
+
+.neutral {
+  color: darkgrey;
+}
+
+.bad {
+  color: palevioletred;
+}
+
+.border {
+  height: 1px;
+  background-color: aquamarine;
+}
