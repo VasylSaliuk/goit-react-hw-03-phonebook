@@ -8,7 +8,12 @@ import ContactList from './components/ContactList';
 
 class App extends Component {
   state = {
-    contacts: [],
+    contacts: [
+      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+    ],
     filter: '',
   };
 
@@ -55,8 +60,7 @@ class App extends Component {
   render() {
     const filtered = this.state.contacts.filter(
       ({ name, number }) =>
-        name.toLowerCase().includes(this.state.filter.toLocaleLowerCase()) ||
-        number.includes(this.state.filter),
+        name.toLowerCase().includes(this.state.filter.toLocaleLowerCase()) || number.includes(this.state.filter),
     );
 
     return (
@@ -64,18 +68,10 @@ class App extends Component {
         <PageTitle title="React. HomeWork-2.2. Phone Book" />
         <Section>
           <Title title="Phone Book" />
-          <ContactForm
-            submitHandler={this.submitHandler}
-          />
+          <ContactForm submitHandler={this.submitHandler} />
           <Title title="Сontacts" />
-          <Filter
-            filterValue={this.state.filter}
-            filterUpdate={this.filterUpdate}
-          />
-          <ContactList
-            filtered={filtered}
-            onDeleteContact={this.deleteContact}
-          />
+          <Filter filterValue={this.state.filter} filterUpdate={this.filterUpdate} />
+          <ContactList filtered={filtered} onDeleteContact={this.deleteContact} />
         </Section>
       </>
     );
